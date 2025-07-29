@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理画面 - Online Poker Game</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <div id="admin-login" class="admin-login">
+            <h1>管理者ログイン</h1>
+            <div class="login-form card">
+                <input type="text" id="admin-username" placeholder="管理者ユーザー名">
+                <input type="password" id="admin-password" placeholder="管理者パスワード">
+                <button class="btn-primary" onclick="adminLogin()">ログイン</button>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+        
+        <div id="admin-panel" class="admin-panel" style="display: none;">
+            <header class="admin-header">
+                <h1>管理画面</h1>
+                <button class="btn-secondary" onclick="adminLogout()">ログアウト</button>
+            </header>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('users')">ユーザー管理</button>
+                <button class="tab-btn" onclick="showTab('settings')">システム設定</button>
+                <button class="tab-btn" onclick="showTab('messages')">メッセージ配信</button>
+                <button class="tab-btn" onclick="showTab('database')">データベース</button>
+            </div>
+            
+            <div id="users-tab" class="tab-content active">
+                <h2>ユーザー管理</h2>
+                <div class="search-bar">
+                    <input type="text" id="user-search" placeholder="ユーザー名で検索">
+                    <button class="btn-secondary" onclick="searchUsers()">検索</button>
+                </div>
+                <div id="users-list" class="data-table"></div>
+            </div>
+            
+            <div id="settings-tab" class="tab-content">
+                <h2>システム設定</h2>
+                <div class="settings-grid">
+                    <div class="setting-group card">
+                        <h3>ボーナス設定</h3>
+                        <div class="setting-item">
+                            <label>新規登録ボーナス</label>
+                            <input type="number" id="signup_bonus" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('signup_bonus')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>ログインボーナス</label>
+                            <input type="number" id="daily_bonus" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('daily_bonus')">更新</button>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group card">
+                        <h3>マッチ設定</h3>
+                        <div class="setting-item">
+                            <label>最大コイン（最小値）</label>
+                            <input type="number" id="max_coins_min" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('max_coins_min')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>最大コイン（最大値）</label>
+                            <input type="number" id="max_coins_max" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('max_coins_max')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>最大コイン（上げ幅）</label>
+                            <input type="number" id="max_coins_step" min="1">
+                            <button class="btn-secondary" onclick="updateSetting('max_coins_step')">更新</button>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group card">
+                        <h3>ブラインド設定</h3>
+                        <div class="setting-item">
+                            <label>スモールブラインド（最小値）</label>
+                            <input type="number" id="small_blind_min" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('small_blind_min')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>スモールブラインド（最大値）</label>
+                            <input type="number" id="small_blind_max" min="0">
+                            <button class="btn-secondary" onclick="updateSetting('small_blind_max')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>スモールブラインド（上げ幅）</label>
+                            <input type="number" id="small_blind_step" min="1">
+                            <button class="btn-secondary" onclick="updateSetting('small_blind_step')">更新</button>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group card">
+                        <h3>試合回数設定</h3>
+                        <div class="setting-item">
+                            <label>試合回数（最小値）</label>
+                            <input type="number" id="rounds_min" min="1">
+                            <button class="btn-secondary" onclick="updateSetting('rounds_min')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>試合回数（最大値）</label>
+                            <input type="number" id="rounds_max" min="1">
+                            <button class="btn-secondary" onclick="updateSetting('rounds_max')">更新</button>
+                        </div>
+                        <div class="setting-item">
+                            <label>試合回数（上げ幅）</label>
+                            <input type="number" id="rounds_step" min="1">
+                            <button class="btn-secondary" onclick="updateSetting('rounds_step')">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="messages-tab" class="tab-content">
+                <h2>メッセージ配信</h2>
+                <div class="message-form card">
+                    <div class="form-group">
+                        <label>タイトル</label>
+                        <input type="text" id="message-title" placeholder="メッセージタイトル">
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea id="message-content" placeholder="メッセージ内容" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>プレゼントコイン（0の場合はプレゼントなし）</label>
+                        <input type="number" id="gift-coins" min="0" value="0">
+                    </div>
+                    <button class="btn-primary" onclick="sendMessage()">メッセージ送信</button>
+                </div>
+                
+                <h3>送信済みメッセージ</h3>
+                <div id="messages-list" class="data-table"></div>
+            </div>
+            
+            <div id="database-tab" class="tab-content">
+                <h2>データベース</h2>
+                <div class="database-selector">
+                    <select id="table-select" onchange="loadTableData()">
+                        <option value="">テーブルを選択</option>
+                        <option value="users">ユーザー</option>
+                        <option value="matches">マッチ</option>
+                        <option value="match_players">マッチプレイヤー</option>
+                        <option value="messages">メッセージ</option>
+                        <option value="settings">設定</option>
+                    </select>
+                </div>
+                <div id="table-data" class="data-table"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/admin.js"></script>
+</body>
+</html>

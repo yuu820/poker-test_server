@@ -1,0 +1,394 @@
+.waiting-room {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.waiting-room h1 {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 30px;
+}
+
+.match-code-display {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.match-code-display h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.code-display {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f4e19c;
+    letter-spacing: 10px;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 10px;
+    border: 2px solid #d4af37;
+}
+
+.code-hint {
+    color: #888;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.players-list h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.players-container {
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.player-item.creator {
+    border-left: 3px solid #d4af37;
+}
+
+.player-name {
+    flex: 1;
+}
+
+.player-badge {
+    background: #d4af37;
+    color: #1a1a1a;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.player-count {
+    text-align: center;
+    color: #888;
+}
+
+.match-info h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.info-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-label {
+    color: #888;
+}
+
+.info-value {
+    color: #f4e19c;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+.game-room {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    color: #d4af37;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+    color: #f4e19c;
+}
+
+.game-table {
+    background: radial-gradient(ellipse at center, #2d4a2b 0%, #1a2e19 100%);
+    border: 10px solid #8b4513;
+    border-radius: 150px;
+    padding: 40px;
+    margin-bottom: 30px;
+    min-height: 400px;
+    position: relative;
+}
+
+.community-cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.card-placeholder {
+    width: 70px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playing-card {
+    width: 70px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.playing-card.hearts,
+.playing-card.diamonds {
+    color: #ff0000;
+}
+
+.playing-card.clubs,
+.playing-card.spades {
+    color: #000000;
+}
+
+.players-area {
+    position: relative;
+    height: 200px;
+}
+
+.player-seat {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 140px;
+    text-align: center;
+}
+
+.player-controls {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.player-hand {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.action-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    background: linear-gradient(135deg, #4a4a4a 0%, #6a6a6a 100%);
+    color: #fff;
+    border: 1px solid #d4af37;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background: linear-gradient(135deg, #5a5a5a 0%, #7a7a7a 100%);
+    transform: translateY(-1px);
+}
+
+.bet-controls {
+    display: flex;
+    gap: 5px;
+}
+
+#bet-amount {
+    width: 100px;
+}
+
+.player-info {
+    text-align: center;
+    color: #f4e19c;
+    font-size: 18px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.player-bet {
+    color: #ff9900;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.player-seat.folded {
+    opacity: 0.5;
+}
+
+.folded-text {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bet-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.player-current-bet {
+    color: #ff9900;
+}
+
+.result-screen {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.result-container {
+    text-align: center;
+}
+
+.result-screen h1 {
+    color: #d4af37;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.final-coins {
+    margin-bottom: 30px;
+}
+
+.final-coins h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.coin-display {
+    font-size: 64px;
+    font-weight: bold;
+    color: #f4e19c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+}
+
+.ranking {
+    margin-bottom: 30px;
+}
+
+.ranking h2 {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+}
+
+.ranking-item.rank-1 {
+    border-left-color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.ranking-item.rank-2 {
+    border-left-color: #c0c0c0;
+    background: rgba(192, 192, 192, 0.1);
+}
+
+.ranking-item.rank-3 {
+    border-left-color: #cd7f32;
+    background: rgba(205, 127, 50, 0.1);
+}
+
+.rank-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d4af37;
+    width: 40px;
+    text-align: center;
+}
+
+.player-name {
+    flex: 1;
+    font-size: 18px;
+    color: #f4e19c;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.player-coins {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.result-actions {
+    margin-top: 30px;
+}
+
+.result-actions button {
+    padding: 15px 40px;
+    font-size: 18px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Poker Game</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title-section">
+            <h1>🎰 Online Poker Game 🎰</h1>
+            <p class="subtitle">リアルタイムテキサスホールデムポーカー</p>
+        </div>
+        
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">ログイン</button>
+                <button class="tab-btn" data-tab="signup">新規登録</button>
+            </div>
+            
+            <div id="login-form" class="auth-form active">
+                <h2>ログイン</h2>
+                <input type="text" id="login-username" placeholder="ユーザーID">
+                <input type="password" id="login-password" placeholder="パスワード">
+                <button class="btn-primary" onclick="login()">ログイン</button>
+                <div id="login-error" class="error-message"></div>
+            </div>
+            
+            <div id="signup-form" class="auth-form">
+                <h2>新規アカウント作成</h2>
+                <input type="text" id="signup-username" placeholder="ユーザーID">
+                <input type="password" id="signup-password" placeholder="パスワード">
+                <input type="password" id="signup-password-confirm" placeholder="パスワード確認">
+                <button class="btn-primary" onclick="signup()">登録</button>
+                <div id="signup-error" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

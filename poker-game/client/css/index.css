@@ -1,0 +1,70 @@
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title-section h1 {
+    font-size: 48px;
+    background: linear-gradient(135deg, #d4af37 0%, #f4e19c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #f4e19c;
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.auth-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #d4af37 0%, #f4e19c 100%);
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.auth-form {
+    display: none;
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 0 0 10px 10px;
+    padding: 30px;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form h2 {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.auth-form button {
+    width: 100%;
+    margin-top: 20px;
+}

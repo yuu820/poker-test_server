@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホーム - Online Poker Game</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎰 Online Poker Game 🎰</h1>
+            <div class="user-info">
+                <span id="username-display"></span>
+                <button class="btn-secondary" onclick="logout()">ログアウト</button>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="coin-display card">
+                <h2>保有コイン</h2>
+                <div class="coin-amount">
+                    <span id="coin-count">0</span>
+                    <span class="coin-icon">💰</span>
+                </div>
+            </div>
+            
+            <div class="messages-section card">
+                <h2>運営からのメッセージ</h2>
+                <div id="messages-container" class="messages-container">
+                    <p class="no-messages">新しいメッセージはありません</p>
+                </div>
+            </div>
+            
+            <div class="game-actions">
+                <button class="btn-primary big-btn" onclick="showCreateMatch()">
+                    マッチを作成
+                </button>
+                <button class="btn-primary big-btn" onclick="showJoinMatch()">
+                    マッチに参加
+                </button>
+            </div>
+        </div>
+        
+        <div id="create-match-modal" class="modal">
+            <div class="modal-content card">
+                <h2>マッチ作成</h2>
+                <div class="form-group">
+                    <label>最大コイン数</label>
+                    <input type="number" id="max-coins" min="100" max="10000" step="100">
+                </div>
+                <div class="form-group">
+                    <label>スモールブラインド</label>
+                    <input type="number" id="small-blind" min="10" max="1000" step="10">
+                </div>
+                <div class="form-group">
+                    <label>試合回数</label>
+                    <input type="number" id="max-rounds" min="5" max="50" step="5">
+                </div>
+                <div class="form-group">
+                    <label>最大人数</label>
+                    <input type="number" id="max-players" min="2" max="10" value="6">
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-primary" onclick="createMatch()">作成</button>
+                    <button class="btn-secondary" onclick="closeModal('create-match-modal')">キャンセル</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="join-match-modal" class="modal">
+            <div class="modal-content card">
+                <h2>マッチに参加</h2>
+                <div class="form-group">
+                    <label>参加コード（5桁）</label>
+                    <input type="text" id="join-code" maxlength="5" placeholder="12345">
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-primary" onclick="joinMatch()">参加</button>
+                    <button class="btn-secondary" onclick="closeModal('join-match-modal')">キャンセル</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/common.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>

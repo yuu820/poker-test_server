@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マッチ - Online Poker Game</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/match.css">
+</head>
+<body>
+    <div class="container">
+        <div id="waiting-room" class="waiting-room">
+            <h1>マッチ待機室</h1>
+            
+            <div class="match-code-display card">
+                <h2>参加コード</h2>
+                <div class="code-display" id="match-code">12345</div>
+                <p class="code-hint">このコードを友達に共有してください</p>
+            </div>
+            
+            <div class="players-list card">
+                <h2>参加プレイヤー</h2>
+                <div id="players-container" class="players-container">
+                </div>
+                <div class="player-count">
+                    <span id="current-players">1</span> / <span id="max-players">6</span> 人
+                </div>
+            </div>
+            
+            <div class="match-info card">
+                <h2>マッチ設定</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">最大コイン:</span>
+                        <span class="info-value" id="info-max-coins">1000</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">ブラインド:</span>
+                        <span class="info-value" id="info-blinds">10/20</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">試合回数:</span>
+                        <span class="info-value" id="info-rounds">10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="start-match-btn" class="btn-primary" onclick="startMatch()" style="display: none;">
+                    マッチ開始
+                </button>
+                <button class="btn-secondary" onclick="leaveMatch()">
+                    退出
+                </button>
+            </div>
+        </div>
+        
+        <div id="game-room" class="game-room" style="display: none;">
+            <div class="game-header">
+                <h1>Texas Hold'em Poker</h1>
+                <div class="game-info">
+                    <span>ラウンド: <span id="current-round">1</span> / <span id="total-rounds">10</span></span>
+                    <span>ポット: <span id="pot-size">0</span></span>
+                </div>
+            </div>
+            
+            <div class="game-table">
+                <div class="community-cards" id="community-cards">
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                </div>
+                
+                <div class="players-area" id="players-area">
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <div class="player-hand" id="player-hand">
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                </div>
+                
+                <div class="action-controls" id="action-controls">
+                    <div class="action-buttons"></div>
+                    <div class="bet-input" style="display: none;">
+                        <input type="number" id="bet-amount" min="0" step="10" placeholder="ベット額">
+                    </div>
+                </div>
+                
+                <div class="player-info">
+                    <span>保有チップ: <span id="player-chips">1000</span></span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="result-screen" class="result-screen" style="display: none;">
+            <div class="result-container">
+                <h1>マッチ結果</h1>
+                
+                <div class="final-coins card">
+                    <h2>あなたの最終コイン</h2>
+                    <div class="coin-display" id="final-coins">1000</div>
+                </div>
+                
+                <div class="ranking card">
+                    <h2>コインランキング</h2>
+                    <div id="ranking-list" class="ranking-list">
+                    </div>
+                </div>
+                
+                <div class="result-actions">
+                    <button class="btn-primary" onclick="goHome()">ホームに戻る</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/match.js"></script>
+</body>
+</html>
